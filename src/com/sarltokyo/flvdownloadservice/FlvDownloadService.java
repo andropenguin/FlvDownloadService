@@ -40,6 +40,9 @@ public class FlvDownloadService extends Service {
 		String url = urlbase + title;
 		String outfile = where + title + ".flv";
 
+		Log.i(TAG, "url = " + url);
+		Log.i(TAG, "outfile = " + outfile);
+
 		Log.i(TAG, "flvstreamerw");
 		int rtn = flvstreamerw(url, outfile);
 		Log.i(TAG, "return value of flvstreamerw = " + rtn);
