@@ -20,6 +20,9 @@ JNIEXPORT jint JNICALL Java_com_sarltokyo_flvdownloadservice_FlvDownloadService_
   outfile = (*env)->GetStringUTFChars(env, outfilej, NULL);
   if (outfile == NULL) return -1;
 
+  LogPrintf("in com_sarltokyo_flvdownloadservice_FlvDownloadService, url = %s", url);
+  LogPrintf("in com_sarltokyo_flvdownloadservice_FlvDownloadService, outfile = %s", outfile);
+
   argv[0] = (char *)malloc(sizeof(char) * (strlen("flvstreamer") + 1));
   if (argv[0] == NULL) {
     LogPrintf("memory allocation of argv[0] failed");
@@ -67,6 +70,12 @@ JNIEXPORT jint JNICALL Java_com_sarltokyo_flvdownloadservice_FlvDownloadService_
   }
   memset(argv[4], 0, strlen(outfile) + 1);
   strcpy(argv[4], outfile);
+
+  LogPrintf("in com_sarltokyo_flvdownloadservice_FlvDownloadService, argv[0] = %s", argv[0]);
+  LogPrintf("in com_sarltokyo_flvdownloadservice_FlvDownloadService, argv[1] = %s", argv[1]);
+  LogPrintf("in com_sarltokyo_flvdownloadservice_FlvDownloadService, argv[2] = %s", argv[2]);
+  LogPrintf("in com_sarltokyo_flvdownloadservice_FlvDownloadService, argv[3] = %s", argv[3]);
+  LogPrintf("in com_sarltokyo_flvdownloadservice_FlvDownloadService, argv[4] = %s", argv[4]);
 
   rtn = flvstreamer(argc, argv);
 
