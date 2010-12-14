@@ -1420,6 +1420,8 @@ flvstreamer(int argc, char **argv)
 	      }
 	    else
 	      {
+                LogPrintf("DEBUG, in flvstreamer.c : parsedHost = %s", parsedHost);
+		LogPrintf("DEBUG, in flvstreamer.c : parsedPort = %d", parsedPort);
 		if (hostname == 0)
 		  hostname = parsedHost;
 		if (port == -1)
