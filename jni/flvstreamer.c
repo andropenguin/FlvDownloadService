@@ -1275,6 +1275,8 @@ flvstreamer(int argc, char **argv)
     {0, 0, 0, 0}
   };
 
+  optind = 0; // added
+
   while ((opt =
 	  getopt_long(argc, argv,
 		      "hVveqzr:s:t:p:a:b:f:o:u:C:n:c:l:y:m:k:d:A:B:T:w:x:W:X:S:#",
