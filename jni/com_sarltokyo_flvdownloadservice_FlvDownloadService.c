@@ -10,8 +10,8 @@ JNIEXPORT jint JNICALL Java_com_sarltokyo_flvdownloadservice_FlvDownloadService_
   const char *url;
   const char *outfile;
 
-  int argc = 5;
-  char *argv[5];
+  int argc = 6;
+  char *argv[6];
   int rtn;
 
   url = (*env)->GetStringUTFChars(env, urlj, NULL);
@@ -71,11 +71,25 @@ JNIEXPORT jint JNICALL Java_com_sarltokyo_flvdownloadservice_FlvDownloadService_
   memset(argv[4], 0, strlen(outfile) + 1);
   strcpy(argv[4], outfile);
 
+  argv[5] = (char *)malloc(sizeof(char) * (strlen("-e") + 1));
+  if (argv[5] == NULL) {
+    LogPrintf("memory allocation of argv[5] failed");
+    free(argv[0]);
+    free(argv[1]);
+    free(argv[2]);
+    free(argv[3]);
+    free(argv[4]);
+    return -1;
+  }
+  memset(argv[5], 0, strlen("-e") + 1);
+  strcpy(argv[5], "-e");
+
   LogPrintf("in com_sarltokyo_flvdownloadservice_FlvDownloadService, argv[0] = %s", argv[0]);
   LogPrintf("in com_sarltokyo_flvdownloadservice_FlvDownloadService, argv[1] = %s", argv[1]);
   LogPrintf("in com_sarltokyo_flvdownloadservice_FlvDownloadService, argv[2] = %s", argv[2]);
   LogPrintf("in com_sarltokyo_flvdownloadservice_FlvDownloadService, argv[3] = %s", argv[3]);
   LogPrintf("in com_sarltokyo_flvdownloadservice_FlvDownloadService, argv[4] = %s", argv[4]);
+  LogPrintf("in com_sarltokyo_flvdownloadservice_FlvDownloadService, argv[5] = %s", argv[5]);
 
   rtn = flvstreamer(argc, argv);
 
@@ -84,6 +98,7 @@ JNIEXPORT jint JNICALL Java_com_sarltokyo_flvdownloadservice_FlvDownloadService_
   free(argv[2]);
   free(argv[3]);
   free(argv[4]);
+  free(argv[5]);
 
   (*env)->ReleaseStringUTFChars(env, urlj, url);
   (*env)->ReleaseStringUTFChars(env, outfilej, outfile);
