@@ -51,7 +51,7 @@ public class FlvDownloadService extends Service {
 	}
 
 	private int removeflv(String title, String where) {
-		File flvfile = new File(title, where);
+		File flvfile = new File(where + title + ".flv");
 		if (flvfile.exists()) {
 			if (flvfile.delete()) {
 				Log.i(TAG, "remove flv file");
