@@ -1,0 +1,32 @@
+FlvDownloadService v1.0
+(C) 2011 OSABE Satoshi
+Licenses: GPLv2 with the exception of the file
+FlvDownloadServiceInterface.aidl. The license of the
+FlvDownloadServiceInterface.aidl is Public domain.
+
+To compile FlvDownloadService, do as follows.
+
+1. Compile Eclipse project FlvDownloadService.
+
+2. Do javah as follows. In the directory FlvDownloadService, do
+
+javah -classpath bin -d jni com.sarltokyo.flvdownloadservice.FlvDownloadService
+
+3. Go to the sub directory jni, do
+
+ndk-build
+
+4. In Eclipse, refresh the project FlvDownloadService by pushing
+the function F5 key.
+
+----------------------------------------------
+How to use this application FlvDownloadService.
+
+See the source files of the sample client Android application
+FlvDownloadClient2 which of source can be downloaded at the url
+git@github.com:andropenguin/FlvDownloadClient2.git
+
+It's apk file can be downloaded at the url
+http://sarl-tokyo.com/android/softwares/FlvDownloadClient2-1.0.apk
+
+
