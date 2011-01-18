@@ -1,11 +1,15 @@
 /*  flvstreamer
  *  Copyright (C) 2009 Andrej Stepanchuk
  *  Copyright (C) 2009 Howard Chu
+ *  Copyright (C) 2011 OSABE Satoshi
  *
  *  This Program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation; either version 2, or (at your option)
- *  any later version.
+ *  any later version with the exception of the file
+ *  FlvDownloadServiceInterface.aidl. The license of the
+ *  FlvDownloadServiceInterface.aidl is Public domain. About the exclamation
+ *  of this license, see http://en.wikipedia.org/wiki/Public_domain.
  *
  *  This Program is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
