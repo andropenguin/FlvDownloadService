@@ -1,0 +1,159 @@
+FLVStreamer                                                                                       
+Copyright (C) 2008-2009 Andrej Stepanchuk                                                      
+Copyright (C) 2009-2010 The Flvstreamer Team                                                        
+Copyright (C) 2009-2010 Howard Chu
+Distributed under the GPL v2
+
+15 Feb 2010, 2.1c1
+
+- Added patch for more problems with rtmp unpause/resume causing corrupted files. (rtmpdump svn r250).
+
+11 Feb 2010, 2.1c
+
+- Reforked from rtmpdump 2.1c (and svn-r247) see Changelog.rtmpdump
+
+- Specifically fixes problem with rtmp unpause/resume causing corrupted files.
+
+02 Jan 2010, 2.1a
+
+- Reforked from rtmpdump 2.1a (and svn-r166) see Changelog.rtmpdump
+
+22 Nov 2009, 1.9a
+
+- Applied fixes from, rtmpdump svn r55:
+
+- Fix auth encoding, partial revert of r12 (of rtmpdump svn)
+
+- flvstreamer bug#107134, don't retry live streams
+
+- flvstreamer bug#107134 stop streaming for onFCUnsubscribe
+
+14 Nov 2009, 1.9
+
+- Reforked from rtmpdump svn-r52 which has had all below fixes and features merged into it.
+
+- Also see ChangeLog.rtmpdump
+
+24 Oct 2009, 1.8l
+
+- Only use absolute timestamps if non-live stream is being streamed
+
+- Added MakefileCYGWIN for Win32 cygwin builds
+
+- Remove empty object after connect is sent which causes some problems - added in 1.8f
+
+07 Sep 2009, 1.8k
+
+- Fixed bug introduced in v1.8i where writing flv dataType did not happen if ctrl-c was pressed
+
+- Handle more signals to reduce risk of unresumable/corrupted partially streamed files
+
+- Disable disk write buffering to reduce risk of unresumable/corrupted partially streamed files
+
+- flush all log writes by default
+
+18 Aug 2009, v1.8j
+
+- Allow chunk stream ids upto 3 bytes long
+
+- Fixed >2GB file handling
+
+31 Jul 2009, v1.8i
+
+- Added --hashes option to show download progress using '#' characters
+
+- Sanitized newlines in informational messages to stderr
+
+- Fixed minor time offset reporting bug
+
+- Always exit as incomplete if Ctrl-C is pressed
+
+30 Jul 2009, v1.8h
+
+- Download progress updates less frequently which puts less CPU load an some systems.
+
+- Fix to allow win32 to use binary mode on stdout.
+
+28 Jul 2009, v1.8g
+
+- Backed-out upstream libRTMP change added in 1.8e which called SendCheckBW when onBWDone was received - Caused 10060 recv error on win32
+
+28 Jul 2009, v1.8f
+
+- Added endian detection for PPC MacOSX in bytes.h
+
+- New MakefileOSX which will create universal binaries for Mac (intel and PPC)
+
+- Don't treat notify packets as media packets
+
+- Ensure that flvstreamer always returns a non-zero exit code for <= 99.9% complete non-live streams that report a duration
+
+- Fix endian define typo
+
+- Add empty object to end of connect request
+
+- The --stop option now also uses the play function to specify the length to stream to play. This allows the option to work better for some streams
+
+- Added sanity checking for the --start and --stop options
+
+- Times are now reported in seconds for readability
+
+12 Jul 2009, v1.8e
+
+- Changed the audioCodecs list to match flash player 10
+
+- Merge some upstream changes from libRTMP XBMC linuxport
+
+- Fixed small bug in handshake response
+
+10 Jul 2009, v1.8d
+
+- Display flv stream metadata in non-verbose modes
+
+- Ported flvstreamer fixes and features to streams.cpp
+
+7 Jul 2009, v1.8c
+
+- Added --stop <secs> and --start <secs> options to specify absolute start and stop offset timestamps for a stream
+
+- The --stop option can be used to specify the duration of live streaming
+
+- Progress additionally displays timestamp in seconds
+
+6 Jul 2009, v1.8b
+
+- Exit codes now reflect success of download. 
+
+- non-zero exit code for incomplete downloads even if stream duration is unknown.
+
+- Slight changes in reporting messages.
+
+20 Jun 2009, v1.8a
+
+- Added changes adapted from patch from daftcat75 for mlbviewer
+
+- Added --subscribe <subscribe path> option. Default is to use playpath if --live is specified
+
+- Increased memory allocation fo CreateStream and Play packets to 1024 bytes
+
+- Added --debug, --verbose and --quiet options
+
+- Made default output level LOGINFO
+
+19 Jun 2009, v1.8
+
+- Added FCSubscribe support for live streams to fix hanging live streams
+
+- Bumped default flashVer to LNX 10,0,22,87
+
+- Supress 'no-name' from verbose output
+
+22 May 2009, v1.7
+
+- forked from rtmp dump 1.6
+
+- removed all rtmpe and swf verification support
+
+- default is now to stream all flv data to stdout
+
+- First release
