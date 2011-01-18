@@ -1,0 +1,9 @@
+FlvDownloadService
+(C) 2011 OSABE Satoshi
+Licenses: GPLv2 with the exception of the file
+FlvDownloadServiceInterface.aidl. The license of the
+FlvDownloadServiceInterface.aidl is Public domain.
+
+18 Jan, 2011, v1.0
+
+- First release
